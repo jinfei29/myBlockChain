@@ -1,0 +1,10 @@
+start D:\Git\gitcode\blockchain_consensus_algorithm\raft\raft.exe A
+start D:\Git\gitcode\blockchain_consensus_algorithm\raft\raft.exe B
+start D:\Git\gitcode\blockchain_consensus_algorithm\raft\raft.exe C
+start D:\Git\gitcode\blockchain_consensus_algorithm\raft\raft.exe D
+start D:\Git\gitcode\blockchain_consensus_algorithm\raft\raft.exe E
+start D:\Git\gitcode\blockchain_consensus_algorithm\raft\raft.exe F
+start D:\Git\gitcode\blockchain_consensus_algorithm\raft\raft.exe G
+start D:\Git\gitcode\blockchain_consensus_algorithm\raft\raft.exe H
+start D:\Git\gitcode\blockchain_consensus_algorithm\raft\raft.exe I
+start D:\Git\gitcode\blockchain_consensus_algorithm\raft\raft.exe J

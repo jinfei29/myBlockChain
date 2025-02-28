@@ -12,7 +12,7 @@ import (
 //等待节点访问
 func (rf *Raft) getRequest(writer http.ResponseWriter, request *http.Request) {
 	request.ParseForm()
-	//http://localhost:8080/req?message=ohmygod
+	//http://localhost:8080/req?message=???
 	if len(request.Form["message"]) > 0 && rf.currentLeader != "-1" {
 		message := request.Form["message"][0]
 		m := new(Message)
@@ -23,12 +23,16 @@ func (rf *Raft) getRequest(writer http.ResponseWriter, request *http.Request) {
 		port := nodeTable[rf.currentLeader]
 		rp, err := rpc.DialHTTP("tcp", "127.0.0.1"+port)
 		if err != nil {
-			log.Panic(err)
+			log.Printf("连接到节点 %s 失败: %v\n", rf.currentLeader, err)
+			writer.Write([]byte("error"))
+			return
 		}
 		b := false
 		err = rp.Call("Raft.LeaderReceiveMessage", m, &b)
 		if err != nil {
-			log.Panic(err)
+			log.Printf("调用RPC方法 LeaderReceiveMessage 失败: %v\n", err)
+			writer.Write([]byte("error"))
+			return
 		}
 		fmt.Println("消息是否已发送到领导者：", b)
 		writer.Write([]byte("ok!!!"))
@@ -45,7 +49,7 @@ func (rf *Raft) httpListen() {
 	}
 }
 
-//返回一个十位数的随机数，作为消息idgit
+//返回一个十位数的随机数，作为消息id
 func getRandom() int {
 	x := big.NewInt(10000000000)
 	for {
