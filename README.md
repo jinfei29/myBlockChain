@@ -1,4 +1,4 @@
-   &ensp;&ensp;&ensp;&ensp;  &ensp;&ensp; &ensp;&ensp; vx:17671816082**
+   &ensp;&ensp;&ensp;&ensp;  &ensp;&ensp; &ensp;&ensp; vx:17671816082
 
 <hr>
 
